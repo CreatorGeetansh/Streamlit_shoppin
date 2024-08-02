@@ -142,7 +142,6 @@ traitlets==5.14.1
 trio==0.22.2
 trio-websocket==0.10.3
 Twisted==23.8.0
-transformers
 typing_extensions==4.11.0
 tzdata==2023.3
 urllib3==1.26.15
@@ -157,4 +156,5 @@ wrapt==1.16.0
 wsproto==1.2.0
 yarl==1.9.2
 zope.interface==6.0
-torch
+transformers==4.30.0
+torch==1.13.1 

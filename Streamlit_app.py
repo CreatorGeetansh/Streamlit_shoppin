@@ -42,7 +42,6 @@ indian_actors = [
     'Vivek Oberoi', 'Yami Gautam', 'Yash', 'Zareen Khan', 'woman', 'men', 'man'
 ]
 
-# Function to load image from URL or file
 def load_image(image_path_or_url):
     try:
         if isinstance(image_path_or_url, str) and image_path_or_url.startswith(('http://', 'https://')):
@@ -56,11 +55,9 @@ def load_image(image_path_or_url):
         st.error(f"Error loading image: {e}")
         return None
 
-# Function to generate caption
 def generate_caption(image, processor, model, device, max_new_tokens=50):
     if image is None:
         return "No image provided."
-
     try:
         inputs = processor(images=image, return_tensors="pt").to(device)
         outputs = model.generate(**inputs, max_new_tokens=max_new_tokens)
@@ -71,18 +68,24 @@ def generate_caption(image, processor, model, device, max_new_tokens=50):
     except Exception as e:
         st.error(f"Error generating caption: {e}")
         return "Error generating caption."
-        
+
 @st.cache_resource
 def load_model_and_processor():
-    processor = AutoProcessor.from_pretrained("microsoft/Florence-2-base", trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained("microsoft/Florence-2-large", trust_remote_code=True)
-    model.to(torch.device("cpu"))
-    return processor, model
+    try:
+        processor = AutoProcessor.from_pretrained("microsoft/Florence-2-base", trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained("microsoft/Florence-2-large", trust_remote_code=True)
+        model.to(torch.device("cpu"))
+        return processor, model
+    except Exception as e:
+        st.error(f"Error loading model and processor: {e}")
+        return None, None
 
-# Main function
 def main():
-    # Load model and processor
     processor, model = load_model_and_processor()
+    if processor is None or model is None:
+        st.error("Failed to load model and processor.")
+        return
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
@@ -94,15 +97,11 @@ def main():
 
     if st.button("Generate Description"):
         input_image = None
-
-        # Load image from file uploader
         if uploaded_file is not None:
             input_image = uploaded_file
-        # Load image from URL
         elif image_url:
             input_image = image_url
 
-        # Perform caption generation if image is provided
         if input_image is not None:
             image = load_image(input_image)
             if image is not None:

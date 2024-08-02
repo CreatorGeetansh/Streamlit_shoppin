@@ -39,7 +39,7 @@ indian_actors = [
     'Trisha Krishnan', 'Tusshar Kapoor', 'Twinkle Khanna', 'Uday Chopra', 'Urvashi Rautela',
     'Vaani Kapoor', 'Varun Dhawan', 'Vicky Kaushal', 'Vidya Balan', 'Vidyut Jamal',
     'Vijay Deverakonda', 'Vijay Raaz', 'Vijay Sethupathi', 'Vikram', 'Vinay Pathak',
-    'Vivek Oberoi', 'Yami Gautam', 'Yash', 'Zareen Khan', 'woman', 'a men', 'a man'
+    'Vivek Oberoi', 'Yami Gautam', 'Yash', 'Zareen Khan', 'woman', 'men', 'man'
 ]
 
 # Function to load image from URL or file

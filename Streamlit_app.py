@@ -322,20 +322,6 @@
       ]
     }
   ],
-  "metadata": {
-    "colab": {
-      "provenance": [],
-      "authorship_tag": "ABX9TyNl5q7t2h+a9RTuYcylCxLo",
-      "include_colab_link": false
-    },
-    "kernelspec": {
-      "display_name": "Python 3",
-      "name": "python3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
   "nbformat": 4,
   "nbformat_minor": 0
 }

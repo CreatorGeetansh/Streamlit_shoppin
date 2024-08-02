@@ -105,7 +105,6 @@ pyOpenSSL==23.2.0
 pyparsing==3.1.1
 pypdf==3.8.0
 PyPDF2==3.0.1
-pypiwin32==223
 PySocks==1.7.1
 python-dateutil==2.8.2
 pytz==2023.3

@@ -72,7 +72,6 @@ def generate_caption(image, processor, model, device, max_new_tokens=50):
         st.error(f"Error generating caption: {e}")
         return "Error generating caption."
 
-@st.cache_resource
 def load_model_and_processor():
     processor = AutoProcessor.from_pretrained("microsoft/Florence-2-base", trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained("microsoft/Florence-2-large", trust_remote_code=True)

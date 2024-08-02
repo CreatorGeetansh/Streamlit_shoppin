@@ -1,7 +1,3 @@
-!pip install streamlit
-!pip install pyngrok
-!pip install timm einops flash_attn
-
 import streamlit as st
 from PIL import Image
 from transformers import AutoProcessor, AutoModelForCausalLM
